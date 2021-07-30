@@ -1,9 +1,10 @@
 import './App.css';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
     <div className="App">
-     <h2>Devlog 2.0 </h2>
+      <HomePage />
     </div>
   );
 }
