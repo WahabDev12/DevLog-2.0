@@ -7,7 +7,7 @@ import Post from "./Post";
 const Dashboard = () => {
     const scrollTop = () =>{
        window.scrollTo({top: 0, behavior: 'smooth'});
-   };
+   }
     return ( 
         
     <>
@@ -17,7 +17,7 @@ const Dashboard = () => {
   </div>
    
   <header  className="header">
-    <div className="header__avatar"><FontAwesomeIcon icon={faUserCircle} /> Abdul Wahab</div>
+    <div className="header__avatar">Abdul Wahab</div>
     <div className="header__avatar"><Link>New Post <FontAwesomeIcon icon={faPencilAlt} /></Link></div>
   </header>
 
