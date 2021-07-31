@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook, faEnvelope, faGlobe, faLandmark, faLocationArrow, faTerminal } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faGlobe, faLocationArrow } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return ( 
@@ -13,37 +14,37 @@ const Footer = () => {
       <div class="container">
         <div className='social-links'>
           <h2>Follow Us</h2> 
-          <a href="http://instagram.com">
+          <Link to="">
             <FontAwesomeIcon icon={faLocationArrow} />  Info@devlog.com 
-          </a>
-          <a href="http://facebook.com">
+          </Link>
+          <Link to="">
             <FontAwesomeIcon icon={faGlobe} />    www.devlog.com
-          </a>
-          <a href="http://youtube.com">
+          </Link>
+          <Link to="">
             <FontAwesomeIcon icon={faEnvelope} />  DevLog02
-          </a>
+          </Link>
           
         </div>
         <div>
           <h3>More Info</h3>
           <ul>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
+            <li><Link to="#">Services</Link></li>
+            <li><Link to="#">About Us</Link></li>
+            <li><Link to="#">Privacy Policy</Link></li>
+            <li><Link to="#">Terms of Service</Link></li>
           </ul>
         </div>
         <div>
           <h3>Blog Posts</h3>
           <ul>
-            <li><a href="#">Lorem ipsum dolor.</a></li>
-            <li><a href="#">Lorem ipsum dolor.</a></li>
-            <li><a href="#">Lorem ipsum dolor.</a></li>
-            <li><a href="#">Lorem ipsum dolor.</a></li>
+            <li><Link to="#">Lorem ipsum dolor.</Link></li>
+            <li><Link to="#">Lorem ipsum dolor.</Link></li>
+            <li><Link to="#">Lorem ipsum dolor.</Link></li>
+            <li><Link to="#">Lorem ipsum dolor.</Link></li>
           </ul>
         </div>
         <div>
-          <h3>Subscribe</h3>
+          <h3>Newsletter</h3>
           <p>Subscribe to our weekly newsletter</p>
           <form name="email-form" onsubmit="event.preventDefault()">
             <div class="email-form">
@@ -54,7 +55,7 @@ const Footer = () => {
                   id="email"
                   size="60"
                   class="form-control"
-                  placeholder="E-mail" /></span
+                  placeholder="Enter your email..." /></span
               ><button type="submit" value="Submit" class="form-control submit">
                 <FontAwesomeIcon icon={faEnvelope} />
               </button>

@@ -1,17 +1,17 @@
-import GoogleButton from 'react-google-button';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (  
         <nav className="navbar">
       <div className="container">
-          <a href="/">
+          <Link to="/">
         <h1 className="logo">DevLog🔥</h1>
-        </a>
+        </Link>
         <ul className="nav">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/signup">SignUp</Link></li>
         <li>
-            <a href="">SignIn</a>
+            <Link href="/login">Login</Link>
           </li>
         </ul>
       </div>
