@@ -62,7 +62,7 @@ img {
 
 .navbar {
   font-size: 1.2rem;
-  padding: 1rem 0;
+  padding: 0.5rem 0;
   box-shadow: 0 0 2px black;
 
 }
@@ -183,23 +183,13 @@ img {
 
 
 
-
-
-/* gallery */
-
-
-
-
-
-
-
 /* footer */
 
 .section-footer {
   background-color: var(--primary-color);
-  color: black;
+  color: #333;
   padding: 4rem 0;
-  height:18.5rem;
+  height:20.5rem;
 }
 
 .section-footer .container {
@@ -219,11 +209,11 @@ img {
 
 .section-footer a {
   line-height: 1.9;
-  color: black;
+  color: #333;
 }
 
 .section-footer a>i {
-  color: black;
+  color: #333;
   margin-right: 0.5rem;
 }
 .copyright{

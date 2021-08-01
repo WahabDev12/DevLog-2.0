@@ -1,0 +1,32 @@
+.modal {
+    margin-top: 2.5rem;
+    margin-left: 9.5rem;
+    height:auto;
+}
+
+.modal-header {
+    margin-bottom: 5px;
+    height: 55px;
+}
+
+
+.modal-title {
+    width: 300px;
+    margin: auto;
+}
+
+.modal-title>h3 {
+    text-align: center;
+}
+
+.close-Btn{
+    float:right;
+}
+
+.modal-content {
+    outline: none;
+    border-radius: 3px;
+    resize: none;
+    font-size: 22px;
+
+}

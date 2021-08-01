@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
 
 const Navbar = () => {
     return (  
@@ -9,9 +10,13 @@ const Navbar = () => {
         </Link>
         <ul className="nav">
           <li><Link href="/">Home</Link></li>
-          <li><Link href="/signup">SignUp</Link></li>
         <li>
-            <Link href="/login">Login</Link>
+            <Link href="/about">About</Link>
+          </li>
+          <li>
+            <Link href="/signup">
+              <GoogleLogin theme="dark" buttonText="Sign In" />
+            </Link>
           </li>
         </ul>
       </div>
