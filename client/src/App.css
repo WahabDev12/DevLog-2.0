@@ -16,6 +16,11 @@
   padding: 0;
 }
 
+.logo{
+  color:#333;
+
+}
+
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.6;

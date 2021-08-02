@@ -1,7 +1,7 @@
 import "../styles/Dashboard.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp, faBars, faFlag, faHamburger, faHashtag, faHome, faPencilAlt, faSignOutAlt, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp, faKiwiBird ,faBars, faCodeBranch, faHamburger, faHashtag, faHome, faPencilAlt, faSignOutAlt, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
 import Post from "./Post";
 import {Modal,Button} from "react-bootstrap";
 import { useState } from "react";
@@ -34,30 +34,28 @@ const Dashboard = () => {
     </Modal>
 
 
-
-
-    <div className="grid-container">
-   <div className="menu-icon">
-        <FontAwesomeIcon icon={faBars} />
-  </div>
+  <div className="grid-container">
+    <div className="menu-icon">
+          <FontAwesomeIcon icon={faBars} />
+    </div>
    
   <header  className="header">
-    <div className="header__avatar">Abdul Wahab</div>
-    <div className="header__avatar">
-      <Link onClick={handleShow} >New Post <FontAwesomeIcon icon={faPencilAlt} /></Link>
-    </div>
+    <div className="header__avatar"><h5>Welcome  👋</h5></div>
+
   </header>
 
   <aside style={{position:"fixed"}} className="sidenav">
     <div className="sidenav__close-icon">
         <FontAwesomeIcon icon={faHamburger} />
     </div>
-   <Link style={{color:"white"}} to="/dashboard"><h2 className="dash-name">Dashboard</h2></Link> 
+   <Link style={{color:"white"}} to="/dashboard">
+     <h2 className="dash-name">Dev <FontAwesomeIcon icon={faCodeBranch} /> </h2>
+   </Link> 
     <ul className="sidenav__list">
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faHome} />  Home</li>
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faUser} />  Profile</li>
-      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faPencilAlt} />  My Posts</li>
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faHashtag} />  Explore</li>
+      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faPencilAlt} />  My Posts</li>
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faSignOutAlt} />  Logout</li>
       <li className="sidenav__list-item"> <Button onClick={handleShow} className="side-post">Tweet</Button></li>
     </ul>
@@ -65,7 +63,9 @@ const Dashboard = () => {
 
 
   <main className="main">
-    <button onClick={scrollTop} className="top-btn"><FontAwesomeIcon icon={faArrowUp} /></button>
+    <button onClick={scrollTop} className="top-btn">
+      <FontAwesomeIcon icon={faArrowUp} />
+    </button>
 
      <Post />
      <Post />
