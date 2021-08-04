@@ -73,6 +73,11 @@ img {
     margin-right: 20px;
 }
 
+.tweet-img{
+    width:350px;
+    height:320px;
+}
+
 .tweet-info-counts div svg {
     color: #657786;
     margin-right: 10px;

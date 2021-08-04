@@ -1,12 +1,16 @@
 import "../styles/Dashboard.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp ,faBars, faHamburger, faHashtag, faHome, faPencilAlt, faSignOutAlt, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp ,faBars, faHamburger, faHashtag, faHome,
+faPencilAlt, faSignOutAlt, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
 import Post from "./Post";
 import {Modal,Button} from "react-bootstrap";
 import { useState } from "react";
 import "../styles/Modal.css";
 import { useAuth } from "../contexts/AuthContext";
+import {storage} from "../firebase/Firebase";
+import firebase from "firebase";
+
 
 const Dashboard = () => {
 
@@ -15,6 +19,82 @@ const Dashboard = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const {currentUser} = useAuth();
+    const [posting,setIsPosting] = useState(false);
+    const [uploading,setIsUploading] = useState(false);
+    const [image,setImage] = useState("");
+    const date = new Date();
+    const [title,setTitle] = useState("");
+    const time = date.getHours() + ':' + date.getMinutes();
+    const [error,setError] = useState("");
+
+    
+
+    // Handle Image upload 
+    const handleChange = (e)=>{
+
+      setIsUploading(true);
+
+      // Select image being choosen
+      if(e.target.files[0]){
+        setImage((e.target.files[0]));
+
+      }
+      else if(e.target.files[null]){
+          setImage(null)
+          setIsUploading(false);
+      }
+
+      else{
+        setIsUploading(false);
+
+      }
+
+    };
+
+
+    // Make Post 
+    const handlePost = async (e) =>{
+      
+    e.preventDefault();
+    setIsUploading(false);
+    setIsPosting(true);
+
+    // Create a firebase storage and store image
+    const storageRef = storage.ref();
+    const fileRef = storageRef.child(image.name)
+    
+    await fileRef.put(image);
+    const postRef = firebase.database().ref("Post");
+
+    // Post Schema
+    const post = {
+
+      name:image.name,
+      userID:currentUser.uid,
+      author:currentUser.displayName,
+      url: await fileRef.getDownloadURL(),
+      caption:title,
+      timeStamp:time
+    
+    };
+
+    try{
+
+      postRef.push(post)
+      setTitle("");
+      setImage("");        
+    }
+
+    catch(error){
+
+        console.log(error.message);
+        setError(error.message);
+    }
+
+    setIsPosting(false);
+    setShow(false);
+
+  }
 
     return ( 
     <>  
@@ -28,12 +108,18 @@ const Dashboard = () => {
         </Modal.Header>
         <Modal.Body>
           <textarea placeholder=" What's happening?"
+           value={title} 
+           onChange={(e)=>setTitle(e.target.value)}
            rows="6" autofocus className="modal-content" />
         </Modal.Body>
         <Modal.Footer>
-          <Button  type="submit" className="post-btn" variant="primary" >Post</Button>
+          <input type="file" onChange={handleChange}  />
+          <form onSubmit={handlePost}>
+          <Button type="submit" className="post-btn" variant="primary" >Post</Button>
+          </form>
         </Modal.Footer>
     </Modal>
+
 
 
   <div className="grid-container">
@@ -75,9 +161,8 @@ const Dashboard = () => {
     </button>
 
      <Post />
-     <Post />
-     <Post />
-     <Post />
+     <br />
+     <br />
 
   </main>
 
