@@ -9,7 +9,9 @@ const Post = () => {
 
     return ( 
         <>
-    {loading &&
+    {  
+       loading &&
+
     <div className="tweet-wrap">
         <div className="tweet-header">
             <Skeleton circle={true} height={50} width={50} />
@@ -20,6 +22,7 @@ const Post = () => {
     </div>
 
     }
+  
    {
        !loading && 
  <div className="tweet-wrap">

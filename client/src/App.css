@@ -21,6 +21,16 @@
 
 }
 
+.g-btn:hover{
+  cursor: pointer;
+}
+
+.devlog{
+  width:50px;
+  height:50px;
+}
+
+
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.6;

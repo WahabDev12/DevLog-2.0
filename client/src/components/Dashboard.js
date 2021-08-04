@@ -1,11 +1,12 @@
 import "../styles/Dashboard.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp, faKiwiBird ,faBars, faCodeBranch, faHamburger, faHashtag, faHome, faPencilAlt, faSignOutAlt, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp ,faBars, faHamburger, faHashtag, faHome, faPencilAlt, faSignOutAlt, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
 import Post from "./Post";
 import {Modal,Button} from "react-bootstrap";
 import { useState } from "react";
 import "../styles/Modal.css";
+import { useAuth } from "../contexts/AuthContext";
 
 const Dashboard = () => {
 
@@ -13,6 +14,7 @@ const Dashboard = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const {currentUser} = useAuth();
 
     return ( 
     <>  
@@ -40,7 +42,11 @@ const Dashboard = () => {
     </div>
    
   <header  className="header">
-    <div className="header__avatar"><h5>Welcome  👋</h5></div>
+    <div className="header__avatar">
+      <Link>
+        <h5> {currentUser.displayName} 👋</h5>
+      </Link>
+    </div>
 
   </header>
 
@@ -49,7 +55,8 @@ const Dashboard = () => {
         <FontAwesomeIcon icon={faHamburger} />
     </div>
    <Link style={{color:"white"}} to="/dashboard">
-     <h2 className="dash-name">Dev <FontAwesomeIcon icon={faCodeBranch} /> </h2>
+     <h3 className="dash-name"><img className="devlog
+     32" src="https://img.icons8.com/dusk/64/000000/code.png"/> Dashboard </h3>
    </Link> 
     <ul className="sidenav__list">
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faHome} />  Home</li>

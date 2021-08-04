@@ -1,0 +1,56 @@
+import firebase from "firebase";
+import React, {useContext,useState,useEffect} from "react";
+import { auth } from "../firebase/Firebase";
+
+
+const AuthContext  = React.createContext();
+
+export function useAuth(){
+    return useContext(AuthContext);
+}
+
+const AuthProvider = ({children}) => {
+
+    const [loading,setLoading] = useState(false);
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const [currentUser,setCurrentUser] = useState("");
+
+    // Sign in With Google
+    const authWithGoogle = async () =>{
+        await firebase.auth().signInWithPopup(provider);
+
+    };
+
+    const value = { 
+        currentUser,
+        authWithGoogle,
+    }
+
+  useEffect(()=>{
+    const unsubscribe = auth.onAuthStateChanged(user=>{
+        try{
+            setCurrentUser(user);
+            setLoading(false);
+        }
+
+        catch(error){
+            console.log(error.message)
+        }
+
+    })
+
+    return unsubscribe;
+
+},[])
+
+       
+    return ( 
+        <>
+        <AuthContext.Provider value = {value} >
+            {!loading && children}
+        </AuthContext.Provider>
+        </>
+    );
+}
+ 
+export default AuthProvider;

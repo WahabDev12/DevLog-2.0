@@ -1,13 +1,36 @@
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCode, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
+import { useAuth } from '../contexts/AuthContext';
+import { useState } from 'react';
+
+
 const Navbar = () => {
+
+   const history  = useHistory();
+   const {authWithGoogle} = useAuth();
+   const [error,setError] = useState("");
+   const {currentUser} = useAuth();
+
+   const handleGoogleLogin = async()=>{
+        try{
+          setError("")
+          await authWithGoogle();
+          console.log(currentUser.displayName)
+
+        }
+
+        catch(error){
+          console.log(error.message);
+          setError("Failed to create user")
+        }
+        history.push("/dashboard");
+   }
+
     return (  
         <nav className="navbar">
       <div className="container">
           <Link to="/">
-        <h1 className="logo">DevLog <FontAwesomeIcon icon={faCodeBranch} /></h1>
+      <h2 className="logo"> <img className="devlog" src="https://img.icons8.com/dusk/64/000000/code.png"/> DevLog </h2>
         </Link>
         <ul className="nav">
           <li><Link href="/">Home</Link></li>
@@ -15,8 +38,8 @@ const Navbar = () => {
             <Link href="/about">About</Link>
           </li>
           <li>
-            <Link href="/signup">
-              <GoogleLogin theme="dark" buttonText="Sign In" />
+            <Link onClick={handleGoogleLogin} >
+              <GoogleLogin theme="dark" className="g-btn" buttonText="Sign In" />
             </Link>
           </li>
         </ul>

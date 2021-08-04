@@ -40,7 +40,7 @@ const Footer = () => {
             <li><Link to="#">Lorem ipsum dolor.</Link></li>
             <li><Link to="#">Lorem ipsum dolor.</Link></li>
             <li><Link to="#">Lorem ipsum dolor.</Link></li>
-            <li><Link to="#">Lorem ipsum dolor.</Link></li>
+            <a href="https://icons8.com/icon/42900/code">Code icon by Icons8</a>
           </ul>
         </div>
         <div>
