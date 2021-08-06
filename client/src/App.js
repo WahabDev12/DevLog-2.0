@@ -3,6 +3,7 @@ import HomePage from './components/HomePage';
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 import Dashboard from './components/Dashboard';
 import AuthProvider from './contexts/AuthContext';
+import Chat from './components/Chat';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/dashboard" exact component={Dashboard} />
+          <Route path="/chat" exact component={Chat} />
         </Switch>
       </Router>
       </AuthProvider>

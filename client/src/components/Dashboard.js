@@ -1,8 +1,8 @@
 import "../styles/Dashboard.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp ,faBars, faHamburger, faHashtag, faHome,
-faPencilAlt, faSignOutAlt, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp ,faBars, faHamburger, faHome,
+faPencilAlt, faSignOutAlt, faUsers, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
 import Post from "./Post";
 import {Modal,Button} from "react-bootstrap";
 import { useState } from "react";
@@ -10,6 +10,9 @@ import "../styles/Modal.css";
 import { useAuth } from "../contexts/AuthContext";
 import {storage} from "../firebase/Firebase";
 import firebase from "firebase";
+import {Spinner,Alert} from "react-bootstrap";
+import Skeleton from 'react-loading-skeleton';
+
 
 
 const Dashboard = () => {
@@ -22,13 +25,16 @@ const Dashboard = () => {
     const [posting,setIsPosting] = useState(false);
     const [uploading,setIsUploading] = useState(false);
     const [image,setImage] = useState("");
+    const [loading,setIsLoading] = useState(true);
     const date = new Date();
     const [title,setTitle] = useState("");
     const time = date.getHours() + ':' + date.getMinutes();
     const [error,setError] = useState("");
 
-    
-
+    // Set image load to false
+    window.onload = () =>{
+        setIsLoading(false);
+    }
     // Handle Image upload 
     const handleChange = (e)=>{
 
@@ -59,7 +65,7 @@ const Dashboard = () => {
     setIsUploading(false);
     setIsPosting(true);
 
-    // Create a firebase storage and store image
+    // Create a firebase storage to store image
     const storageRef = storage.ref();
     const fileRef = storageRef.child(image.name)
     
@@ -107,16 +113,37 @@ const Dashboard = () => {
         </Link>
         </Modal.Header>
         <Modal.Body>
+
+          {
+            uploading && 
+             <Alert variant="success">Image Uploaded succesfully</Alert>
+          }
+
           <textarea placeholder=" What's happening?"
            value={title} 
            onChange={(e)=>setTitle(e.target.value)}
            rows="6" autofocus className="modal-content" />
         </Modal.Body>
         <Modal.Footer>
-          <input type="file" onChange={handleChange}  />
-          <form onSubmit={handlePost}>
-          <Button type="submit" className="post-btn" variant="primary" >Post</Button>
-          </form>
+          <input required type="file" onChange={handleChange}  />
+        
+    <form onSubmit={handlePost}>
+      {      
+          !posting &&
+    <Button type="submit" className="post-btn" variant="primary" >Post</Button>
+  
+     }  
+
+      {
+        posting &&
+
+          <Button type="submit" className="post-btn" variant="primary" >   
+               <Spinner animation="border" />
+          </Button>
+
+      }
+
+    </form>
         </Modal.Footer>
     </Modal>
 
@@ -129,9 +156,27 @@ const Dashboard = () => {
    
   <header  className="header">
     <div className="header__avatar">
+      {
+        !loading && 
+
       <Link>
-        <h5> {currentUser.displayName} 👋</h5>
+          <h5> {currentUser.displayName} 👋</h5>
+
       </Link>
+
+      }      
+
+
+
+      <Link>
+        {
+        loading && 
+          <h5> 
+             <Skeleton width={140} count={1} />
+          </h5>
+        }  
+      
+      </Link>   
     </div>
 
   </header>
@@ -147,7 +192,9 @@ const Dashboard = () => {
     <ul className="sidenav__list">
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faHome} />  Home</li>
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faUser} />  Profile</li>
-      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faHashtag} />  Explore</li>
+      <li className="sidenav__list-item">
+         <FontAwesomeIcon icon={faUsers} />  <Link to="/chat" className="side-link">Community Chat</Link>
+      </li>
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faPencilAlt} />  My Posts</li>
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faSignOutAlt} />  Logout</li>
       <li className="sidenav__list-item"> <Button onClick={handleShow} className="side-post">Tweet</Button></li>

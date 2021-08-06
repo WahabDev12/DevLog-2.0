@@ -17,12 +17,12 @@ img {
 
 
 .tweet-wrap {
-    max-width: 490px;
+    width: 500px;
     background: #fff;
     margin: 0 auto;
     margin-top: 50px;
     border-radius: 3px;
-    padding: 30px;
+    padding: 10px;
     border: 0.2px solid rgb(206, 204, 204);
 
 }
@@ -52,15 +52,6 @@ img {
 
 }
 
-.tweet-header-info p {
-    font-weight: normal;
-    margin-top: 5px;
-
-}
-
-.tweet-img-wrap {
-    padding-left: 60px;
-}
 
 .tweet-info-counts {
     display: flex;
@@ -74,8 +65,13 @@ img {
 }
 
 .tweet-img{
-    width:350px;
-    height:320px;
+    width:500px;
+    background-size: cover;
+    height:350px;
+}
+
+.post-caption{
+    margin:10px;
 }
 
 .tweet-info-counts div svg {

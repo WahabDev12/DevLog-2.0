@@ -48,20 +48,17 @@ const Post = () => {
       {
         postList ? postList.map((post,index)=>
 
-          <div className="tweet-wrap">
+          <div key={index} className="tweet-wrap">
             <div className="tweet-header">
               <img src={currentUser.photoURL} alt="user-photo" className="avator" />
               <div className="tweet-header-info">
                 {currentUser.displayName} <span>@ {currentUser.displayName}</span>
-                <span>. Jun 27
-              </span>
-                <br />
-                <h6>{post.caption}</h6>
-                
+                <span>. {post.timeStamp}
+              </span>  
               </div>
-        
-              
             </div>
+                <h6 className="post-caption">{post.caption}</h6>
+
             <div className="tweet-img-wrap">
               <img src={post.url} alt="" className="tweet-img" />
             </div>

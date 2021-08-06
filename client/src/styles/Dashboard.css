@@ -24,6 +24,15 @@
     padding: 12px;
 }
 
+
+.side-link{
+    color:rgb(214, 210, 210);
+}
+
+.side-link:hover{
+   color:white;
+}
+
 /* Give every child element its grid name */
 .header {
     grid-area: header;
