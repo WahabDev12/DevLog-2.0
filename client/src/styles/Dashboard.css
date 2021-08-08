@@ -30,7 +30,7 @@
 }
 
 .side-link:hover{
-   color:white;
+   color:#2b8bc7;
 }
 
 /* Give every child element its grid name */
@@ -52,6 +52,11 @@
     font-family: "Quicksand",sans-serif;
     font-size: 15.5px;
 }
+
+.user-name-header{
+    color:white;
+}
+
 .dash-name{
     margin-top:20px;
     text-align: center;
@@ -69,7 +74,7 @@
     transition: all .6s ease-in-out;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
     z-index: 2;
-    background-color: #333;
+    background-color: #15181C;
     color:white;
 }
 
@@ -96,11 +101,13 @@
 .sidenav__list-item {
     padding: 20px 20px 20px 40px;
     color: #ddd;
+    font-weight:bold;
+    letter-spacing: 1px;
 }
 
 .sidenav__list-item:hover {
     cursor: pointer;
-    color:#fafafa;  
+    color:#2b8bc7;
 }
 
 .main {
@@ -109,16 +116,16 @@
 
 
 .side-post{
-    background-color: white;
-    color:#333;
-    width:120px;
+    background-color: #1A91DA;
+    color:white;
+    width:170px;
     height:auto;
     font-size: larger;
 }
 
 .side-post:hover{
-    background-color: #fafafa;
-    color:black;
+    background-color: #3b88b8;
+    color:#fff;
 }
 
 /* BACK TO TOP*/
@@ -127,7 +134,7 @@
 .top-btn {
     width: 50px;
     height: 50px;
-    background: #333;
+    background:#15181C;
     color: #fff;
     text-align: center;
     border-radius: 1000px;

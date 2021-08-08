@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+
+.chat-engine{
+    font-family:"Roboto",sans-serif;
+    
+}
+
+.header {
+    grid-area: header;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 7px;
+    background-color: #2da5f0;
+    color: #FFFF;
+    height: 4rem;
+    box-shadow: 0 0 3.5px black;
+
+}
+
+.dev-header{
+    float:left;
+    color:white;
+    font-family: "Roboto",
+    sans-serif;
+    font-size:28px;
+    padding-left:10px;
+    font-weight: bold;
+}
+
+
+.devlog32{
+    width:45px;
+    height:45px;
+    padding:2px;    
+}
+
+.header>div {
+    padding: 10px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 15.5px;
+}
+
+.logout-chat{
+    margin-left:20px;
+    color:white;
+    font-family: "Roboto",sans-serif;
+    font-size:18px;
+}
+
+.logout-chat:hover{
+    color:#ebe8e8;
+}
+
+.go-dash:hover{
+    color:#e9e5e5;
+}
+
+.go-dash{
+    color:white;
+    font-family: "Roboto",
+    sans-serif;
+    font-size:18px;
+}

@@ -76,11 +76,13 @@ const Dashboard = () => {
     const post = {
 
       name:image.name,
+      userName:currentUser.displayName,
+      userProfile:currentUser.photoURL,
       userID:currentUser.uid,
       author:currentUser.displayName,
       url: await fileRef.getDownloadURL(),
       caption:title,
-      timeStamp:time
+      timeStamp:time,
     
     };
 
@@ -159,14 +161,12 @@ const Dashboard = () => {
       {
         !loading && 
 
-      <Link>
+      <Link className="user-name-header">
           <h5> {currentUser.displayName} 👋</h5>
 
       </Link>
 
       }      
-
-
 
       <Link>
         {

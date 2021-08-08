@@ -50,9 +50,9 @@ const Post = () => {
 
           <div key={index} className="tweet-wrap">
             <div className="tweet-header">
-              <img src={currentUser.photoURL} alt="user-photo" className="avator" />
+              <img src={post.userProfile} alt="user-photo" className="avator" />
               <div className="tweet-header-info">
-                {currentUser.displayName} <span>@ {currentUser.displayName}</span>
+                {post.userName} <span>@ {post.userName}</span>
                 <span>. {post.timeStamp}
               </span>  
               </div>
