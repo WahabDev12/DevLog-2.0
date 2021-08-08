@@ -23,9 +23,10 @@
     "config": "^3.3.6",
     "express": "^4.17.1",
     "mongoose": "^5.13.5",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "react-read-more-read-less": "^1.0.7"
   },
-    "devDependencies": {
+  "devDependencies": {
     "nodemon": "^2.0.12"
   }
 }

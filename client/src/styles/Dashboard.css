@@ -62,6 +62,14 @@
     text-align: center;
 
 }
+
+.your-post{
+    width:200px;
+    margin:auto;
+    float:initial;
+
+}
+
 .sidenav {
     grid-area: sidenav;
     display: flex;

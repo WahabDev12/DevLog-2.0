@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp ,faBars, faHamburger, faHome,
 faPencilAlt, faSignOutAlt, faUsers, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
-import Post from "./Post";
+import Post from "./AllPosts";
 import {Modal,Button} from "react-bootstrap";
 import { useState } from "react";
 import "../styles/Modal.css";
@@ -30,6 +30,7 @@ const Dashboard = () => {
     const [title,setTitle] = useState("");
     const time = date.getHours() + ':' + date.getMinutes();
     const [error,setError] = useState("");
+    const {googleSignout} = useAuth();
 
     // Set image load to false
     window.onload = () =>{
@@ -57,6 +58,12 @@ const Dashboard = () => {
 
     };
 
+    
+    //LOGOUT OF APP
+
+    const handleLogout = async ()=>{
+       await googleSignout();
+    }
 
     // Make Post 
     const handlePost = async (e) =>{
@@ -195,8 +202,12 @@ const Dashboard = () => {
       <li className="sidenav__list-item">
          <FontAwesomeIcon icon={faUsers} />  <Link to="/chat" className="side-link">Community Chat</Link>
       </li>
+      <Link style={{color:"white"}} to="/myposts">
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faPencilAlt} />  My Posts</li>
+      </Link>
+      <Link style={{color:"white"}} onClick={handleLogout}>
       <li className="sidenav__list-item"> <FontAwesomeIcon icon={faSignOutAlt} />  Logout</li>
+      </Link>
       <li className="sidenav__list-item"> <Button onClick={handleShow} className="side-post">Tweet</Button></li>
     </ul>
   </aside>

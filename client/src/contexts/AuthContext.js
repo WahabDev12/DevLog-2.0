@@ -21,9 +21,23 @@ const AuthProvider = ({children}) => {
 
     };
 
+    const googleSignout = () =>{
+        firebase.auth().signOut()
+            
+        .then(()=> {
+            console.log('Signout Succesful')
+        },
+        (error)=> {
+            console.log('Signout Failed')  
+        });
+   }
+
+
+
     const value = { 
         currentUser,
         authWithGoogle,
+        googleSignout
     }
 
   useEffect(()=>{
