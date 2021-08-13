@@ -16,12 +16,13 @@ img {
 
 
 .tweet-wrap {
-    width: 500px;
+    width: 630px;
+    height:582px;
     background: #fff;
     margin: 0 auto;
     margin-top: 50px;
+    margin-bottom:20px;
     border-radius: 3px;
-    padding: 10px;
     border: 0.2px solid rgb(206, 204, 204);
 
 }
@@ -30,6 +31,7 @@ img {
     display: flex;
     align-items: flex-start;
     font-size: 14px;
+    padding:10px;
 }
 
 .tweet-header-info {
@@ -55,7 +57,8 @@ img {
 .tweet-info-counts {
     display: flex;
     justify-content: space-around;
-    margin-top: 10px;
+    margin-top: 5px;
+    padding-bottom:4px;
 }
 
 .tweet-info-counts div {
@@ -64,14 +67,23 @@ img {
 }
 
 .tweet-img{
-    width:500px;
+    width:630px;
     background-size: cover;
-    height:350px;
+    height: 23rem;
 }
 
 .post-caption{
     margin:10px;
+    text-align: inherit;
+    font-family:"Quicksand",sans-serif;
+
 }
+
+.like-comment{
+    width:25px;
+    height:25px;
+}
+
 
 .tweet-info-counts div svg {
     color: #657786;

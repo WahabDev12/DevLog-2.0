@@ -5,7 +5,7 @@
     grid-template-areas:
         'header'
         'main'
-        'footer';
+        'second';
     height: 100vh;
 }
 
@@ -24,9 +24,22 @@
     padding: 12px;
 }
 
+.button-wraps {
+    width:200px;
+    padding-left:45px;
+    padding-right:30px;
+    padding-top:7px;
+    padding-bottom:4px;
+    border-radius: 12px;
+}
+
+.button-wraps:hover{
+    background-color:#e6e3e3;
+}
+
 
 .side-link{
-    color:rgb(214, 210, 210);
+    color:#2b8bc7;
 }
 
 .side-link:hover{
@@ -43,6 +56,7 @@
     color:#333;
     height:4rem;
     box-shadow: 0 0 3.5px black;
+    position: sticky;
 
 }
 
@@ -60,6 +74,7 @@
 .dash-name{
     margin-top:20px;
     text-align: center;
+    color:#2b8bc7
 
 }
 
@@ -75,16 +90,18 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 280px;
+    width: 320px;
     position: fixed;
     overflow: hidden;
     transform: translateX(-245px);
     transition: all .6s ease-in-out;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
     z-index: 2;
-    background-color: #15181C;
-    color:white;
+    background-color: #fff;
+    color:#2b8bc7;
 }
+
+
 
 .sidenav.active {
     transform: translateX(0);
@@ -100,27 +117,37 @@
     color: #ddd;
 }
 
+.profile-picture{
+    height:37px;
+    width:37px;
+    border-radius:1000px;
+}
+
 .sidenav__list {
     padding: 10px;
-    margin-top: 40px;
+    margin-top: 4px;
     list-style-type: none;
 }
 
 .sidenav__list-item {
     padding: 20px 20px 20px 40px;
-    color: #ddd;
-    font-weight:bold;
+    color: #2b8bc7;
+    /* font-weight:bold; */
     letter-spacing: 1px;
+    font-size: 20px;
+    font-family:"Quicksand",sans-serif;
 }
 
 .sidenav__list-item:hover {
     cursor: pointer;
-    color:#2b8bc7;
+    color:#13557e;
 }
 
 .main {
     grid-area: main;
 }
+
+
 
 
 .side-post{
@@ -138,11 +165,22 @@
 
 /* BACK TO TOP*/
 
+.search-bar{
+    width:250px;
+    border-radius: 1000px;
+    outline:none;
+    border:1px solid rgb(197, 196, 196);
+    font-size:17px;
+    padding-left:10px;
+    height:2.7rem;
+    margin-left:7px;
+    margin-top:10px;
+}
 
 .top-btn {
     width: 50px;
     height: 50px;
-    background:#15181C;
+    background:#2b8bc7;
     color: #fff;
     text-align: center;
     border-radius: 1000px;

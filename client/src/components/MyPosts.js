@@ -6,26 +6,38 @@ faPencilAlt, faSignOutAlt, faUsers, faTimes, faUser, faEdit, faTrash} from "@for
 import { useAuth } from "../contexts/AuthContext";
 import firebase from "../firebase/Firebase";
 import { useState,useEffect } from "react";
-import Skeleton from 'react-loading-skeleton';
-import Comment from "../Images/Comment.svg";
-import Likes from "../Images/Likes.svg";
 import LoadSkeleton from "./LoadSkeleton";
 import { useHistory } from "react-router-dom";
 
-const MyPost = () => {
+const MyPost = ({id}) => {
     const {currentUser} = useAuth();
     const [postList,setPostList] = useState("");
     const [loading,setIsLoading] = useState(true);
     const scrollTop = () => window.scrollTo({top: 0, behavior: 'smooth'});
     const {googleSignout} = useAuth();
     const history = useHistory();
-    const id = currentUser.uid
+    const userID = currentUser.uid
 
     // Handle Logout
     const handleLogout = async ()=>{
        await googleSignout();
        return history.push("/")
     }
+
+    // Delete Post from firebase
+    
+    const deletePost = () =>{
+        const postRef = firebase.database().ref("Post/" + id)
+        try{
+          postRef.remove();
+          console.log("Post removed")
+
+        }
+        catch(error){
+          console.log(error.message)
+        }
+
+    };
 
 
     useEffect(()=>{
@@ -40,14 +52,14 @@ const MyPost = () => {
 
         }
         setPostList(postList);
-        setIsLoading(false)    
+        setIsLoading(false) ;
 
       
 
     });
     
 
-    },[id])
+    },[userID])
 
     return ( 
         <>
@@ -72,18 +84,23 @@ const MyPost = () => {
         <FontAwesomeIcon icon={faHamburger} />
     </div>
    <Link style={{color:"white"}} to="/dashboard">
-     <h3 className="dash-name"><img className="devlog
-     32" src="https://img.icons8.com/dusk/64/000000/code.png"/> Dashboard </h3>
+     <h3 className="dash-name"><img className="devlog" src="https://img.icons8.com/dusk/64/000000/code.png"/> 
+           <input className="search-bar" type="search" placeholder="🔎 Search..." /> 
+      </h3>
    </Link> 
     <ul className="sidenav__list">
-      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faHome} />  Home</li>
-      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faUser} />  Profile</li>
+      <Link style={{color:"white"}} to="/dashboard">
+      <li className="sidenav__list-item"> 🏠  Home</li>
+      </Link>
+      <Link style={{color:"white"}} to="/profile">
+      <li className="sidenav__list-item"> 👨‍   Profile</li>
+      </Link>
       <li className="sidenav__list-item">
-         <FontAwesomeIcon icon={faUsers} />  <Link to="/chat" className="side-link">Community Chat</Link>
+         👨‍👦‍👦 <Link to="/chat" className="side-link">Community Chat</Link>
       </li>
-      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faPencilAlt} />  My Posts</li>
+      <li className="sidenav__list-item">  📝  My Posts</li>
       <Link style={{color:"white"}} onClick={handleLogout}>
-      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faSignOutAlt} />  Logout</li>
+      <li className="sidenav__list-item"> 🚶‍♂️ Logout</li>
       </Link>
     </ul>
   </aside>
@@ -115,7 +132,8 @@ const MyPost = () => {
               <img src={post.userProfile} alt="user-photo" className="avator" />
               <div className="tweet-header-info">
                 {post.userName} <span>@ {post.userName}</span>
-                <span>. {post.timeStamp}
+                <br />
+                <span>Posted at {post.timeStamp} . 🌎 
               </span>  
               </div>
             </div>
@@ -125,18 +143,17 @@ const MyPost = () => {
               <img src={post.url} alt="" className="tweet-img" />
             </div>
             <div className="tweet-info-counts">
-              
+                <Link className="button-wraps">
               <div className="likes">
-                <Link>
                 <div style={{backgorundColor:'blue'}} className="likes-count">
                   <h5>
                       <FontAwesomeIcon style={{color:'blue'}}  icon={faEdit} /> Edit
                   </h5>
                 </div>
-                </Link>
               </div>
+                </Link>
               <div className="comments">
-                <Link>
+                <Link className="button-wraps" onClick={deletePost}>
                 <div   className="comment-count">
                   <h5>
                       <FontAwesomeIcon style={{color:'red'}}  icon={faTrash} /> Delete

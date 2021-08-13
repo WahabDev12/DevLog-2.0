@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp ,faBars, faHamburger, faHome,
 faPencilAlt, faSignOutAlt, faUsers, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
-import Post from "./AllPosts";
+import AllPost from "./AllPosts";
 import {Modal,Button} from "react-bootstrap";
 import { useState } from "react";
 import "../styles/Modal.css";
@@ -12,7 +12,7 @@ import {storage} from "../firebase/Firebase";
 import firebase from "firebase";
 import {Spinner,Alert} from "react-bootstrap";
 import Skeleton from 'react-loading-skeleton';
-
+import { useHistory } from "react-router-dom";
 
 
 const Dashboard = () => {
@@ -31,6 +31,7 @@ const Dashboard = () => {
     const time = date.getHours() + ':' + date.getMinutes();
     const [error,setError] = useState("");
     const {googleSignout} = useAuth();
+    const history = useHistory(); 
 
     // Set image load to false
     window.onload = () =>{
@@ -58,11 +59,12 @@ const Dashboard = () => {
 
     };
 
-    
+
     //LOGOUT OF APP
 
     const handleLogout = async ()=>{
        await googleSignout();
+       history.push("/")
     }
 
     // Make Post 
@@ -169,7 +171,7 @@ const Dashboard = () => {
         !loading && 
 
       <Link className="user-name-header">
-          <h5> {currentUser.displayName} 👋</h5>
+          <h5> {currentUser.displayName} <img className="profile-picture" src={currentUser.photoURL} /></h5>
 
       </Link>
 
@@ -179,7 +181,7 @@ const Dashboard = () => {
         {
         loading && 
           <h5> 
-             <Skeleton width={140} count={1} />
+             <Skeleton width={140} count={1} /> 
           </h5>
         }  
       
@@ -192,36 +194,44 @@ const Dashboard = () => {
     <div className="sidenav__close-icon">
         <FontAwesomeIcon icon={faHamburger} />
     </div>
-   <Link style={{color:"white"}} to="/dashboard">
-     <h3 className="dash-name"><img className="devlog
-     32" src="https://img.icons8.com/dusk/64/000000/code.png"/> Dashboard </h3>
+    <Link  to="/dashboard">
+     <h3 className="dash-name">
+       <div className="img-wrapper">
+      <img className="devlog
+     32" src="https://img.icons8.com/dusk/64/000000/code.png"/> 
+     </div>
+     <input className="search-bar" type="search" placeholder="🔎 Search...." /> </h3>
    </Link> 
     <ul className="sidenav__list">
-      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faHome} />  Home</li>
-      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faUser} />  Profile</li>
+      <li className="sidenav__list-item"> 🏠 Home</li>
+      <li className="sidenav__list-item"> 👨‍  Profile</li>
       <li className="sidenav__list-item">
-         <FontAwesomeIcon icon={faUsers} />  <Link to="/chat" className="side-link">Community Chat</Link>
+         👨‍👦‍👦 <Link to="/chat" className="side-link">Community Chat</Link>
       </li>
       <Link style={{color:"white"}} to="/myposts">
-      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faPencilAlt} />  My Posts</li>
+      <li className="sidenav__list-item"> 📝  My Posts</li>
       </Link>
       <Link style={{color:"white"}} onClick={handleLogout}>
-      <li className="sidenav__list-item"> <FontAwesomeIcon icon={faSignOutAlt} />  Logout</li>
+      <li className="sidenav__list-item"> 🚶‍♂️  Logout</li>
       </Link>
       <li className="sidenav__list-item"> <Button onClick={handleShow} className="side-post">Tweet</Button></li>
     </ul>
   </aside>
 
 
+ 
+
+
   <main className="main">
+    <div className="main-div">
     <button onClick={scrollTop} className="top-btn">
       <FontAwesomeIcon icon={faArrowUp} />
     </button>
 
-     <Post />
+     <AllPost />
      <br />
      <br />
-
+  </div>
   </main>
 
 </div>
