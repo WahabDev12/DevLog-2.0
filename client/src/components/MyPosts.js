@@ -1,8 +1,7 @@
 import "../styles/Dashboard.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp ,faBars, faHamburger, faHome,
-faPencilAlt, faSignOutAlt, faUsers, faTimes, faUser, faEdit, faTrash} from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp ,faBars, faHamburger, faTrash} from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../contexts/AuthContext";
 import firebase from "../firebase/Firebase";
 import { useState,useEffect } from "react";
@@ -39,7 +38,7 @@ const MyPost = ({id}) => {
 
     };
 
-
+    // Query user's individual Post on Load
     useEffect(()=>{
         const postRef =  firebase.database().ref("Post");
         postRef.orderByChild("userID").equalTo(`${currentUser.uid}`).on("value",(snapshot)=>{
@@ -83,10 +82,15 @@ const MyPost = ({id}) => {
     <div className="sidenav__close-icon">
         <FontAwesomeIcon icon={faHamburger} />
     </div>
+
    <Link style={{color:"white"}} to="/dashboard">
-     <h3 className="dash-name"><img className="devlog" src="https://img.icons8.com/dusk/64/000000/code.png"/> 
-           <input className="search-bar" type="search" placeholder="🔎 Search..." /> 
+      <h3 className="dash-name">
+         <div> 
+       <img className="devlog" src="https://img.icons8.com/dusk/64/000000/code.png"/> 
+      </div>
+          <input className="search-bar" type="search" placeholder="🔎 Search DevLog..." /> 
       </h3>
+
    </Link> 
     <ul className="sidenav__list">
       <Link style={{color:"white"}} to="/dashboard">
@@ -147,7 +151,7 @@ const MyPost = ({id}) => {
               <div className="likes">
                 <div style={{backgorundColor:'blue'}} className="likes-count">
                   <h5>
-                      <FontAwesomeIcon style={{color:'blue'}}  icon={faEdit} /> Edit
+                      ✏️ Edit
                   </h5>
                 </div>
               </div>
@@ -156,7 +160,7 @@ const MyPost = ({id}) => {
                 <Link className="button-wraps" onClick={deletePost}>
                 <div   className="comment-count">
                   <h5>
-                      <FontAwesomeIcon style={{color:'red'}}  icon={faTrash} /> Delete
+                      🗑️ Delete
                   </h5>
                 
                   </div>

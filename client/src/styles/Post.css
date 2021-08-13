@@ -17,7 +17,7 @@ img {
 
 .tweet-wrap {
     width: 630px;
-    height:582px;
+    height:570px;
     background: #fff;
     margin: 0 auto;
     margin-top: 50px;
@@ -76,6 +76,16 @@ img {
     margin:10px;
     text-align: inherit;
     font-family:"Quicksand",sans-serif;
+
+}
+
+.read-more{
+    color:rgb(98, 98, 243);
+    font-weight:bold
+}
+.read-less{
+    color:rgb(98, 98, 248);
+    font-weight:bold
 
 }
 

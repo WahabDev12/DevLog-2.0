@@ -167,25 +167,20 @@ const Dashboard = () => {
    
   <header  className="header">
     <div className="header__avatar">
-      {
-        !loading && 
-
-      <Link className="user-name-header">
-          <h5> {currentUser.displayName} <img className="profile-picture" src={currentUser.photoURL} /></h5>
-
-      </Link>
-
-      }      
-
-      <Link>
-        {
-        loading && 
-          <h5> 
-             <Skeleton width={140} count={1} /> 
-          </h5>
-        }  
       
-      </Link>   
+      <Link className="user-name-header">
+   <h6>
+     <img className="profile-picture" src={currentUser.photoURL} />  {currentUser.displayName}  
+    </h6>
+         <Link to="/chat">
+         <h5 className="getemoji">💬</h5> 
+         </Link>
+         <Link>
+          <h5 className="getemoji">🔔</h5> 
+         </Link>
+      </Link>
+     
+
     </div>
 
   </header>
@@ -200,7 +195,7 @@ const Dashboard = () => {
       <img className="devlog
      32" src="https://img.icons8.com/dusk/64/000000/code.png"/> 
      </div>
-     <input className="search-bar" type="search" placeholder="🔎 Search...." /> </h3>
+     <input className="search-bar" type="search" placeholder="🔎 Search DevLog...." /> </h3>
    </Link> 
     <ul className="sidenav__list">
       <li className="sidenav__list-item"> 🏠 Home</li>

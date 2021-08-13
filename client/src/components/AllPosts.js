@@ -7,6 +7,8 @@ import { useAuth } from "../contexts/AuthContext";
 import LoadSkeleton from "./LoadSkeleton";
 import {Link} from "react-router-dom";
 import MyPost from "./MyPosts";
+import ReactReadMoreReadLess from "react-read-more-read-less";
+
 
 const AllPost = () => {
     const [loading,setIsLoading] = useState(true);
@@ -46,6 +48,7 @@ const AllPost = () => {
   
   {
        !loading &&  
+       
        <div>
       {
         postList ? postList.map((post,index)=>
@@ -62,7 +65,18 @@ const AllPost = () => {
               </div>
             </div>
             
-                <h6 className="post-caption">{post.caption}</h6>
+                <h6 className="post-caption">
+            <ReactReadMoreReadLess
+                charLimit={180}
+                readMoreClassName="read-more"
+                readLessClassName="read-less"
+                readMoreText={"See More..."}
+                readLessText={"See less..."}
+                
+            >
+                {post.caption}
+            </ReactReadMoreReadLess>
+                </h6>
 
             <div className="tweet-img-wrap">
               <img src={post.url} alt="" className="tweet-img" />

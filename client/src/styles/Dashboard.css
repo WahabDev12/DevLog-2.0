@@ -25,7 +25,7 @@
 }
 
 .button-wraps {
-    width:200px;
+    width:160px;
     padding-left:45px;
     padding-right:30px;
     padding-top:7px;
@@ -67,8 +67,8 @@
     font-size: 15.5px;
 }
 
-.user-name-header{
-    color:white;
+.user-name-header:hover{
+    color:#fafafa;
 }
 
 .dash-name{
@@ -121,6 +121,7 @@
     height:37px;
     width:37px;
     border-radius:1000px;
+    margin-right:8px;
 }
 
 .sidenav__list {
@@ -148,6 +149,29 @@
 }
 
 
+.user-name-header {
+    display: flex;
+    flex-direction: row;
+    width:290px;
+    color:white;
+}
+
+.getemoji{
+    margin-left:15px;
+    font-size:19px;
+    width:auto;
+    height:37px;
+    padding:6.5px;
+    border-radius: 1000px;
+    background-color: #E5E5EE;
+}
+
+.getemoji:hover{
+     background-color: #cccaca;
+}
+.user-name-header > h6{
+    font-size:18px;
+}
 
 
 .side-post{

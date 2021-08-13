@@ -32,7 +32,7 @@ const LoadSkeleton = () => {
             <Skeleton circle={true} height={50} width={50} />
         </div>
         <br />
-                    <div style={{padding:'15px'}}>
+         <div style={{padding:'15px'}}>
 
         <Skeleton  count={7}/>
                 </div>
