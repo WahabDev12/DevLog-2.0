@@ -16,8 +16,8 @@ img {
 
 
 .tweet-wrap {
-    width: 630px;
-    height:570px;
+    width: 640px;
+    max-height:580px;
     background: #fff;
     margin: 0 auto;
     margin-top: 50px;
@@ -67,7 +67,7 @@ img {
 }
 
 .tweet-img{
-    width:630px;
+    width:640px;
     background-size: cover;
     height: 23rem;
 }

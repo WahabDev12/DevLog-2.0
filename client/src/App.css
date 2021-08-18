@@ -175,6 +175,11 @@ img {
   background: var(--secondary-color);
 }
 
+.follow-icon{
+  width:25px;
+  height:25px;
+}
+
 
 
 .second-header{

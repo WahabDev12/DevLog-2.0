@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faGlobe, faLocationArrow } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -14,15 +14,16 @@ const Footer = () => {
       <div class="container">
         <div className='social-links'>
           <h2>Follow Us</h2> 
-          <Link to="">
-            <FontAwesomeIcon icon={faLocationArrow} />  Info@devlog.com 
-          </Link>
-          <Link to="">
-            <FontAwesomeIcon icon={faGlobe} />    www.devlog.com
-          </Link>
-          <Link to="">
-            <FontAwesomeIcon icon={faEnvelope} />  DevLog02
-          </Link>
+          <a href="https://www.instagram.com/wah.760/">
+            <img className="follow-icon" src="https://img.icons8.com/material-outlined/50/000000/instagram-new--v1.png"/> DevLogOfficial
+          </a>
+     
+          <a href="https://twitter.com/NerdyProgramme2">
+            <img className="follow-icon" src="https://img.icons8.com/ios-glyphs/30/000000/twitter--v1.png"/>  DevLog02
+          </a>
+          <a href="http://github.com/WahabDev12/">
+           <img className="follow-icon" src="https://img.icons8.com/ios-glyphs/30/000000/github.png"/>  WahabDev12
+          </a>
           
         </div>
         <div>

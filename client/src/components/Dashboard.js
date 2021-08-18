@@ -1,17 +1,15 @@
 import "../styles/Dashboard.css";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp ,faBars, faHamburger, faHome,
-faPencilAlt, faSignOutAlt, faUsers, faTimes, faUser} from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp ,faBars, faHamburger,faTimes} from "@fortawesome/free-solid-svg-icons";
 import AllPost from "./AllPosts";
 import {Modal,Button} from "react-bootstrap";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "../styles/Modal.css";
 import { useAuth } from "../contexts/AuthContext";
 import {storage} from "../firebase/Firebase";
 import firebase from "firebase";
 import {Spinner,Alert} from "react-bootstrap";
-import Skeleton from 'react-loading-skeleton';
 import { useHistory } from "react-router-dom";
 
 
@@ -33,10 +31,13 @@ const Dashboard = () => {
     const {googleSignout} = useAuth();
     const history = useHistory(); 
 
+
     // Set image load to false
-    window.onload = () =>{
-        setIsLoading(false);
-    }
+    useEffect(()=>{
+      scrollTop();
+      setIsLoading(false);
+    },[])
+
     // Handle Image upload 
     const handleChange = (e)=>{
 
@@ -110,12 +111,14 @@ const Dashboard = () => {
 
     setIsPosting(false);
     setShow(false);
+    scrollTop();
+
 
   }
 
     return ( 
     <>  
-    
+   
     <Modal dialogClassName="custom-modal" className="modal" show={show} onHide={handleClose}>
         <Modal.Header className="modal-header" >
         <div className='modal-title'><h3>Create Post</h3></div>
@@ -127,7 +130,9 @@ const Dashboard = () => {
 
           {
             uploading && 
-             <Alert variant="success">Image Uploaded succesfully</Alert>
+             <Alert variant="success">
+               <h5 style={{textAlign:"center"}}>Image Uploaded succesfully</h5>
+             </Alert>
           }
 
           <textarea placeholder=" What's happening?"
@@ -136,8 +141,10 @@ const Dashboard = () => {
            rows="6" autofocus className="modal-content" />
         </Modal.Body>
         <Modal.Footer>
-          <input required type="file" onChange={handleChange}  />
-        
+          <div className="upload-btn-wrapper">
+            <button className="btn-file">Upload Image </button>
+            <input type="file" onChange={handleChange} />
+          </div>        
     <form onSubmit={handlePost}>
       {      
           !posting &&
@@ -159,7 +166,6 @@ const Dashboard = () => {
     </Modal>
 
 
-
   <div className="grid-container">
     <div className="menu-icon">
           <FontAwesomeIcon icon={faBars} />
@@ -169,13 +175,13 @@ const Dashboard = () => {
     <div className="header__avatar">
       
       <Link className="user-name-header">
-   <h6>
+   <h6 >
      <img className="profile-picture" src={currentUser.photoURL} />  {currentUser.displayName}  
     </h6>
          <Link to="/chat">
          <h5 className="getemoji">💬</h5> 
          </Link>
-         <Link>
+         <Link onClick={handleShow}>
           <h5 className="getemoji">🔔</h5> 
          </Link>
       </Link>
@@ -201,7 +207,7 @@ const Dashboard = () => {
       <li className="sidenav__list-item"> 🏠 Home</li>
       <li className="sidenav__list-item"> 👨‍  Profile</li>
       <li className="sidenav__list-item">
-         👨‍👦‍👦 <Link to="/chat" className="side-link">Community Chat</Link>
+         👨‍👦‍👦 <Link to="/chat" className="side-link">Group Chat</Link>
       </li>
       <Link style={{color:"white"}} to="/myposts">
       <li className="sidenav__list-item"> 📝  My Posts</li>

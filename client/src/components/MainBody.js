@@ -34,7 +34,7 @@ const MainBody = () => {
         <div>
           <p className="mission">
        Our mission is to help developers socialize with other developers around the world.
-        We accomplish this by creating an interactive platform where all developers can connect. We also have thousands of DevLog study groups around the world. It's easy and free to post your thinking on any topic and connect with millions of developers.
+        We accomplish this by creating an interactive platform where all developers can connect. We also have thousands of DevLog study groups. It's easy and free to post your thinking on any topic and connect with millions of developers.
           </p>
         </div>
       </div>

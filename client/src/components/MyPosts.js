@@ -7,6 +7,8 @@ import firebase from "../firebase/Firebase";
 import { useState,useEffect } from "react";
 import LoadSkeleton from "./LoadSkeleton";
 import { useHistory } from "react-router-dom";
+import ReactReadMoreReadLess from "react-read-more-read-less";
+
 
 const MyPost = ({id}) => {
     const {currentUser} = useAuth();
@@ -129,7 +131,7 @@ const MyPost = ({id}) => {
        !loading &&  
        <div>
       {
-        postList ? postList.map((post,index)=>
+        postList.length > 0 ? postList.map((post,index)=>
 
           <div key={index} className="tweet-wrap">
             <div className="tweet-header">
@@ -141,31 +143,36 @@ const MyPost = ({id}) => {
               </span>  
               </div>
             </div>
-                <h6 className="post-caption">{post.caption}</h6>
 
+                <h6 className="post-caption">
+            <ReactReadMoreReadLess
+                charLimit={180}
+                readMoreClassName="read-more"
+                readLessClassName="read-less"
+                readMoreText={"See More..."}
+                readLessText={"See Less..."}
+            >
+                {post.caption}
+            </ReactReadMoreReadLess>
+                </h6>
             <div className="tweet-img-wrap">
               <img src={post.url} alt="" className="tweet-img" />
             </div>
             <div className="tweet-info-counts">
-                <Link className="button-wraps">
+              <Link className="button-wraps">
               <div className="likes">
-                <div style={{backgorundColor:'blue'}} className="likes-count">
-                  <h5>
-                      ✏️ Edit
-                  </h5>
+                ✏️
+                <div className="likes-count">
+                  Edit                    
                 </div>
               </div>
-                </Link>
+              </Link>
+              <Link className="button-wraps">
               <div className="comments">
-                <Link className="button-wraps" onClick={deletePost}>
-                <div   className="comment-count">
-                  <h5>
-                      🗑️ Delete
-                  </h5>
-                
-                  </div>
-                </Link>
+                🗑️
+                <div className="comment-count">Delete</div>
               </div>
+              </Link>
               </div>
                
 
@@ -174,7 +181,10 @@ const MyPost = ({id}) => {
          .
          reverse(0)
          :
-         ""
+        <div className="post__error">
+          <h3 className="postError__message">You have not made any posts yet 😢</h3>
+         <br />
+         </div>
       }
    
 
