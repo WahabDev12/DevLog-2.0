@@ -232,6 +232,10 @@ img {
   color: #333;
 }
 
+.social-links .links:hover{
+    color:#fafafa
+}
+
 .section-footer a>i {
   color: #333;
   margin-right: 0.5rem;

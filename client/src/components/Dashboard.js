@@ -205,7 +205,9 @@ const Dashboard = () => {
    </Link> 
     <ul className="sidenav__list">
       <li className="sidenav__list-item"> 🏠 Home</li>
+      <Link to="/profile">
       <li className="sidenav__list-item"> 👨‍  Profile</li>
+      </Link>
       <li className="sidenav__list-item">
          👨‍👦‍👦 <Link to="/chat" className="side-link">Group Chat</Link>
       </li>

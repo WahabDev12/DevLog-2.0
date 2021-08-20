@@ -6,6 +6,7 @@ import AuthProvider from './contexts/AuthContext';
 import Chat from './components/Chat';
 import MyPost from './components/MyPosts';
 import PrivateRoute from './components/Private-Routes/PrivateRoute';
+import Profile from "./components/Profile"
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/chat" exact  component={Chat} />
           <Route path="/myposts" exact  component={MyPost} />
           <Route path="/dashboard" exact component={Dashboard} />
+          <Route path="/profile" exact component={Profile} />
         </Switch>
       </Router>
       </AuthProvider>

@@ -102,7 +102,7 @@ const MyPost = ({id}) => {
       <li className="sidenav__list-item"> 👨‍   Profile</li>
       </Link>
       <li className="sidenav__list-item">
-         👨‍👦‍👦 <Link to="/chat" className="side-link">Community Chat</Link>
+         👨‍👦‍👦 <Link to="/chat" className="side-link">Group Chat</Link>
       </li>
       <li className="sidenav__list-item">  📝  My Posts</li>
       <Link style={{color:"white"}} onClick={handleLogout}>
