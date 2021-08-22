@@ -107,6 +107,22 @@
 
 }
 
+.conf_wrapper{
+    margin-top:7rem;
+
+}
+
+.custom-modal-2{
+    border-radius:1000px;
+
+}
+
+.conf_modal{
+    box-shadow: 0 0 3.5px rgb(102, 101, 101);
+    border-radius:5px;
+
+}
+
 .postError__message{
     font-weight:bold;
     font-size:27px;

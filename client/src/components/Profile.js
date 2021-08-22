@@ -64,7 +64,9 @@ const Profile = () => {
         <Link to="/dashboard">
             <li className="sidenav__list-item"> 🏠 Home</li>
         </Link>
+        <Link to="/profile">
       <li className="sidenav__list-item"> 👨‍  Profile</li>
+      </Link>
       <li className="sidenav__list-item">
          👨‍👦‍👦 <Link to="/chat" className="side-link">Group Chat</Link>
       </li>

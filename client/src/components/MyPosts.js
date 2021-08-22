@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom";
 import ReactReadMoreReadLess from "react-read-more-read-less";
 
 
-const MyPost = ({id}) => {
+const MyPost = () => {
     const {currentUser} = useAuth();
     const [postList,setPostList] = useState("");
     const [loading,setIsLoading] = useState(true);
@@ -25,20 +25,7 @@ const MyPost = ({id}) => {
        return history.push("/")
     }
 
-    // Delete Post from firebase
-    
-    const deletePost = () =>{
-        const postRef = firebase.database().ref("Post/" + id)
-        try{
-          postRef.remove();
-          console.log("Post removed")
 
-        }
-        catch(error){
-          console.log(error.message)
-        }
-
-    };
 
     // Query user's individual Post on Load
     useEffect(()=>{
@@ -132,7 +119,7 @@ const MyPost = ({id}) => {
        <div>
       {
         postList.length > 0 ? postList.map((post,index)=>
-
+          
           <div key={index} className="tweet-wrap">
             <div className="tweet-header">
               <img src={post.userProfile} alt="user-photo" className="avator" />
@@ -159,7 +146,7 @@ const MyPost = ({id}) => {
               <img src={post.url} alt="" className="tweet-img" />
             </div>
             <div className="tweet-info-counts">
-              <Link className="button-wraps">
+              <Link to={{pathname:`/post/del_edit/${post.id}`}} className="button-wraps">
               <div className="likes">
                 ✏️
                 <div className="likes-count">
@@ -167,7 +154,7 @@ const MyPost = ({id}) => {
                 </div>
               </div>
               </Link>
-              <Link className="button-wraps">
+              <Link  to={{pathname:`/post/del_edit/${post.id}`}} className="button-wraps">
               <div className="comments">
                 🗑️
                 <div className="comment-count">Delete</div>
