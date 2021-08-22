@@ -27,7 +27,7 @@ const Dashboard = () => {
     const date = new Date();
     const [title,setTitle] = useState("");
     const time = date.getHours() + ':' + date.getMinutes();
-    const [error,setError] = useState("");
+    const [error,setError] = useState(true);
     const {googleSignout} = useAuth();
     const history = useHistory(); 
 
@@ -36,26 +36,26 @@ const Dashboard = () => {
     useEffect(()=>{
       scrollTop();
       setIsLoading(false);
+      setError(false);
     },[])
+  
 
     // Handle Image upload 
     const handleChange = (e)=>{
 
       setIsUploading(true);
-
+      
+   
       // Select image being choosen
       if(e.target.files[0]){
         setImage((e.target.files[0]));
 
       }
-      else if(e.target.files[null]){
-          setImage(null)
-          setIsUploading(false);
-      }
-
       else{
-        setIsUploading(false);
-
+          setImage(null);
+          setIsUploading(false);
+          setError(true);
+          setIsPosting(false);
       }
 
     };
@@ -135,6 +135,14 @@ const Dashboard = () => {
              </Alert>
           }
 
+          {
+            error &&
+             <Alert variant="danger">
+               <h5 style={{textAlign:"center"}}>No image was selected</h5>
+             </Alert>
+
+          }
+
           <textarea placeholder=" What's happening?"
            value={title} 
            onChange={(e)=>setTitle(e.target.value)}
@@ -143,12 +151,12 @@ const Dashboard = () => {
         <Modal.Footer>
           <div className="upload-btn-wrapper">
             <button className="btn-file">Upload Image </button>
-            <input type="file" onChange={handleChange} />
+            <input required type="file" onChange={handleChange} />
           </div>        
     <form onSubmit={handlePost}>
       {      
           !posting &&
-    <Button type="submit" className="post-btn" variant="primary" >Post</Button>
+    <Button type="submit" className="post-btn" variant="primary">Post</Button>
   
      }  
 

@@ -72,7 +72,7 @@ const Chat = () => {
           <header className="header">
                 <h5 className="dev-header">
                 <img className="devlog32" src="https://img.icons8.com/dusk/64/000000/code.png"/>
-          DevLog Chat
+          <Link style={{color:"white"}} to="/dashboard">DevLog Chat</Link>
       </h5>
     <div className="header__avatar">
    

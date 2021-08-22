@@ -110,6 +110,7 @@
 .conf_wrapper{
     margin-top:7rem;
 
+
 }
 
 .custom-modal-2{
@@ -120,6 +121,8 @@
 .conf_modal{
     box-shadow: 0 0 3.5px rgb(102, 101, 101);
     border-radius:5px;
+
+
 
 }
 
@@ -211,7 +214,36 @@
     width:170px;
     height:auto;
     font-size: larger;
+
 }
+
+@keyframes bounce {
+    0% {
+        top: -15px;
+
+    }
+
+    25% {
+        top: -10px;
+
+    }
+
+    50% {
+        top: -7px;
+
+    }
+
+    75% {
+        top: -5px;
+
+    }
+
+    100% {
+        top: -2px;
+
+    }
+}
+
 
 .side-post:hover{
     background-color: #3b88b8;

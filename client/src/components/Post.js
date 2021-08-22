@@ -98,7 +98,9 @@ const Post = () => {
      <input className="search-bar" type="search" placeholder="🔎 Search DevLog...." /> </h3>
    </Link> 
     <ul className="sidenav__list">
+        <Link to="/dashboard">
       <li className="sidenav__list-item"> 🏠 Home</li>
+      </Link>
       <Link to="/profile">
       <li className="sidenav__list-item"> 👨‍  Profile</li>
       </Link>

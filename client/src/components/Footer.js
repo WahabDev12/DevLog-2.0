@@ -7,12 +7,13 @@ const Footer = () => {
     return ( 
         <>
         <footer 
+        
           style={{
               backgroundColor:"white",
               color:"#333"
           }}
-        class="section-footer">
-      <div class="container">
+        className="section-footer">
+      <div className="container">
         <div className='social-links'>
           <h2>Follow Us</h2> 
           <a className="link" href="https://www.instagram.com/wah.760/">
@@ -48,7 +49,7 @@ const Footer = () => {
         <div>
           <h3>Newsletter</h3>
           <p>Subscribe to our weekly newsletter</p>
-          <form name="email-form" onsubmit="event.preventDefault()">
+          <form name="email-form">
             <div class="email-form">
               <span class="form-control-wrap"
                 ><input
@@ -56,9 +57,9 @@ const Footer = () => {
                   name="email"
                   id="email"
                   size="60"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Enter your email..." /></span
-              ><button type="submit" value="Submit" class="form-control submit">
+              ><button type="submit" value="Submit" className="form-control submit">
                 <FontAwesomeIcon icon={faEnvelope} />
               </button>
             </div>
@@ -67,7 +68,8 @@ const Footer = () => {
       </div>
       
     </footer>
-    <div  className="copyright">
+    <div 
+      className="copyright">
         <small> Copyright &copy; DevLog 2020</small>
     </div>
     </>
