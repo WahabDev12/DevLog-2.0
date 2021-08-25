@@ -24,7 +24,6 @@ const Chat = () => {
 
         if(!currentUser){
             console.log("There is no user");
-            return alert("Please log in first")
 
         }
 
@@ -55,7 +54,7 @@ const Chat = () => {
                 formData,
                 {
                     headers:{
-                        "private-key":process.env.REACT_APP_PRIVAE_KEY
+                        "private-key":process.env.REACT_APP_PRIVATE_KEY
                     }
                 }
                 )
