@@ -23,14 +23,15 @@ const Chat = () => {
     useEffect(()=>{
 
         if(!currentUser){
-            console.log("There is no user")
+            console.log("There is no user");
+            return alert("Please log in first")
 
         }
 
         else{
             axios.get("https://api.chatengine.io/users/me",{
                 headers:{
-                    "project-id":"810d8b1a-f568-4bf1-bf74-bc4a636105c5",
+                    "project-id":process.env.REACT_APP_PROJECT_ID,
                     "user-name":currentUser.email,
                     "user-secret":currentUser.uid
 
@@ -54,7 +55,7 @@ const Chat = () => {
                 formData,
                 {
                     headers:{
-                        "private-key":"7d939cef-f25e-469f-a3dc-a29142a1bf7b"
+                        "private-key":process.env.REACT_APP_PRIVAE_KEY
                     }
                 }
                 )
@@ -92,7 +93,7 @@ const Chat = () => {
             height = "90vh"
             userName={currentUser.displayName}
 			userSecret={currentUser.uid}
-			projectID = '810d8b1a-f568-4bf1-bf74-bc4a636105c5'
+			projectID = {process.env.REACT_APP_PROJECT_ID}
            
           />    
         </div> 

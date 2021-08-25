@@ -217,32 +217,7 @@
 
 }
 
-@keyframes bounce {
-    0% {
-        top: -15px;
 
-    }
-
-    25% {
-        top: -10px;
-
-    }
-
-    50% {
-        top: -7px;
-
-    }
-
-    75% {
-        top: -5px;
-
-    }
-
-    100% {
-        top: -2px;
-
-    }
-}
 
 
 .side-post:hover{

@@ -82,6 +82,40 @@ img {
 
 }
 
+.float-image{
+      position: relative;
+
+    animation: bounce 0.7s ease-in-out infinite alternate;
+
+}
+
+@keyframes bounce {
+  0% {
+    top: -12px;
+
+  }
+
+  25% {
+    top: -10px;
+
+  }
+
+  50% {
+    top: -8px;
+
+  }
+
+  75% {
+    top: -6px;
+
+  }
+
+  100% {
+    top: -4px;
+
+  }
+}
+
 .navbar .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -203,7 +237,6 @@ img {
 .mission {
   line-height: 2.5rem;
 }
-
 
 
 /* footer */

@@ -70,7 +70,7 @@ const Footer = () => {
     </footer>
     <div 
       className="copyright">
-        <small> Copyright &copy; DevLog 2020</small>
+        <small>Made with ❤️ by Abdul-Wahab</small>
     </div>
     </>
     );

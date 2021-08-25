@@ -18,7 +18,7 @@ const MainBody = () => {
           <Link to="/signup"
            className="btn">Get Started</Link>
         </div>
-        <img src={bgImage} alt="bg-image" />
+        <img className="float-image" src={bgImage} alt="bg-image" />
       </div>
     </section>
 

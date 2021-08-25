@@ -20,6 +20,11 @@ const Post = () => {
     const {googleSignout} = useAuth();
     const history = useHistory(); 
     const {id} = useParams();
+    const [editing,setIsEditing] = useState(true);
+    const [image,setImage] = useState("");
+    const [posting,setIsPosting] = useState(false);
+
+
 
 
 
@@ -27,6 +32,7 @@ const Post = () => {
     useEffect(()=>{
       scrollTop();
       setIsLoading(false);
+      setIsEditing(false);
     },[])
 
        // Delete Post from firebase
@@ -59,6 +65,10 @@ const Post = () => {
 
     return (
         <>
+      
+
+
+
         <div className="single-post">
 <div className="grid-container">
     <div className="menu-icon">
@@ -125,6 +135,8 @@ const Post = () => {
     <button onClick={scrollTop} className="top-btn">
       <FontAwesomeIcon icon={faArrowUp} />
     </button>
+    {
+        !editing &&
              <div className="conf_wrapper">
              <Modal.Dialog dialogClassName="custom-modal-2" className="conf_modal">
             <Modal.Header >
@@ -141,6 +153,7 @@ const Post = () => {
             </Modal.Footer>
             </Modal.Dialog>
             </div>
+    }
      
      <br />
      <br />
