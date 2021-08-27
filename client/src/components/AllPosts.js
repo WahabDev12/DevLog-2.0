@@ -71,6 +71,7 @@ const AllPost = () => {
 
     return ( 
         <>
+             <title>DevLog | Home</title>
 
         {
           loading &&

@@ -23,6 +23,7 @@ const Profile = () => {
 
     return (
          <>
+              <title>DevLog | Profile</title>
           <div className="grid-container">
     <div className="menu-icon">
           <FontAwesomeIcon icon={faBars} />

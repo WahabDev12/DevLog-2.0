@@ -118,7 +118,7 @@ const Dashboard = () => {
 
     return ( 
     <>  
-   
+     <title>DevLog | Home</title>
     <Modal dialogClassName="custom-modal" className="modal" show={show} onHide={handleClose}>
         <Modal.Header className="modal-header" >
         <div className='modal-title'><h3>Create Post</h3></div>
@@ -225,7 +225,7 @@ const Dashboard = () => {
       <Link style={{color:"white"}} onClick={handleLogout}>
       <li className="sidenav__list-item"> 🚶‍♂️  Logout</li>
       </Link>
-      <li className="sidenav__list-item"> <Button onClick={handleShow} className="side-post">Tweet</Button></li>
+      <li className="sidenav__list-item"> <Button onClick={handleShow} className="side-post">Post</Button></li>
     </ul>
   </aside>
 

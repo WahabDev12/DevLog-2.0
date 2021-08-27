@@ -28,7 +28,8 @@ const AuthProvider = ({children}) => {
             console.log('Signout Succesful')
         },
         (error)=> {
-            console.log('Signout Failed')  
+            console.log('Signout Failed');
+            console.log(error.message)
         });
    }
 

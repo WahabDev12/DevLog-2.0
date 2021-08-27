@@ -65,10 +65,7 @@ const Post = () => {
 
     return (
         <>
-      
-
-
-
+          <title>DevLog | Posts</title>
         <div className="single-post">
 <div className="grid-container">
     <div className="menu-icon">

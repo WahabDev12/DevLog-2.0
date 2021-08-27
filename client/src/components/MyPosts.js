@@ -51,6 +51,7 @@ const MyPost = () => {
 
     return ( 
         <>
+             <title>DevLog | My Posts</title>
          <div className="grid-container">
     <div className="menu-icon">
           <FontAwesomeIcon icon={faBars} />
