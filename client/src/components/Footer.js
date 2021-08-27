@@ -49,11 +49,11 @@ const Footer = () => {
         <div>
           <h3>Newsletter</h3>
           <p>Subscribe to our weekly newsletter</p>
-          <form name="email-form">
+          <form   method="POST" data-netlify="true" name="email-form">
             <div class="email-form">
               <span class="form-control-wrap"
                 ><input
-                 method="POST" data-netlify="true"
+               
                   type="email"
                   name="email"
                   id="email"

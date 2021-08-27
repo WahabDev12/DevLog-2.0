@@ -182,17 +182,18 @@ const Dashboard = () => {
   <header  className="header">
     <div className="header__avatar">
       
-      <Link className="user-name-header">
+      <Link to="/profile" className="user-name-header">
    <h6 >
      <img className="profile-picture" src={currentUser.photoURL} />  {currentUser.displayName}  
     </h6>
+    </Link>
+
          <Link to="/chat">
          <h5 className="getemoji">💬</h5> 
          </Link>
          <Link onClick={handleShow}>
           <h5 className="getemoji">🔔</h5> 
          </Link>
-      </Link>
      
 
     </div>

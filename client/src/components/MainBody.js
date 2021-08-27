@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const MainBody = () => {
     return ( 
         <>
+        <title>DevLog</title>
         <section id="home" className="section-showcase">
 
       <div className="container">
