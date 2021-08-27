@@ -40,9 +40,9 @@ const Footer = () => {
         <div>
           <h3>Blog Posts</h3>
           <ul>
-            <li className="link"><Link to="#">Lorem ipsum dolor.</Link></li>
-            <li className="link"><Link to="#">Lorem ipsum dolor.</Link></li>
-            <li className="link"><Link to="#">Lorem ipsum dolor.</Link></li>
+            <li className="link"><Link to="#">Learn to code</Link></li>
+            <li className="link"><Link to="#">How to host a webapp</Link></li>
+            <li className="link"><Link to="#">55 Design Patterns</Link></li>
             <a href="https://icons8.com/icon/42900/code">Code icon by Icons8</a>
           </ul>
         </div>
@@ -53,13 +53,14 @@ const Footer = () => {
             <div class="email-form">
               <span class="form-control-wrap"
                 ><input
+                 method="POST" data-netlify="true"
                   type="email"
                   name="email"
                   id="email"
                   size="60"
                   className="form-control"
-                  placeholder="Enter your email..." /></span
-              ><button type="submit" value="Submit" className="form-control submit">
+                  placeholder="Enter your email..." /></span>
+                  <button type="submit" value="Submit" className="form-control submit">
                 <FontAwesomeIcon icon={faEnvelope} />
               </button>
             </div>
