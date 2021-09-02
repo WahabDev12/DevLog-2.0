@@ -2,8 +2,31 @@ import bgImage from "../Images/bgImage.svg";
 import ImgTwo from "../Images/ImgTwo.svg";
 import "../App.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import { useHistory } from "react-router-dom";
+import {useState} from "react";
 
 const MainBody = () => {
+    const history = useHistory();
+    const {currentUser} = useAuth();
+    const {authWithGoogle} = useAuth();
+    const [error,setError] = useState("")
+
+    const handleGoogleLogin = async()=>{
+    try{
+      setError("")
+      await authWithGoogle();
+      console.log(currentUser.displayName)
+
+    }
+
+    catch(error){
+      console.log(error.message);
+      setError("Failed to create user")
+    }
+    history.push("/dashboard");
+
+    }
     return ( 
         <>
         <title>DevLog</title>
@@ -16,7 +39,7 @@ const MainBody = () => {
           <p>
            DevLog is an open platform where programmers get the chance to socialize with each other and share their daily coding vibes.
           </p>
-          <Link to="/signup"
+          <Link onClick={handleGoogleLogin}
            className="btn">Get Started</Link>
         </div>
         <img className="float-image" src={bgImage} alt="bg-image" />

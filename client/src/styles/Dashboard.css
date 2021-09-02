@@ -185,9 +185,17 @@
 
 .user-name-header {
     display: flex;
-    flex-direction: row;
     max-width:320px;
     color:white;
+}
+
+
+.edit_area{
+    border-radius:3.5px;
+    outline:none;
+    width:470px;
+    resize: none;
+    border:3px solid rgb(174, 215, 243);
 }
 
 .getemoji{

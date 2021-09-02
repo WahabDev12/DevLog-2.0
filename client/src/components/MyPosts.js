@@ -147,7 +147,7 @@ const MyPost = () => {
               <img src={post.url} alt="" className="tweet-img" />
             </div>
             <div className="tweet-info-counts">
-              <Link to={{pathname:`/post/del_edit/${post.id}`}} className="button-wraps">
+              <Link to={{pathname:`/post/edit/${post.id}`}} className="button-wraps">
               <div className="likes">
                 ✏️
                 <div className="likes-count">
@@ -155,7 +155,7 @@ const MyPost = () => {
                 </div>
               </div>
               </Link>
-              <Link  to={{pathname:`/post/del_edit/${post.id}`}} className="button-wraps">
+              <Link  to={{pathname:`/post/delete/${post.id}`}} className="button-wraps">
               <div className="comments">
                 🗑️
                 <div className="comment-count">Delete</div>

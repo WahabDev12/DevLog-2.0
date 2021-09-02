@@ -186,15 +186,15 @@ const Dashboard = () => {
    <h6 >
      <img className="profile-picture" src={currentUser.photoURL} />  {currentUser.displayName}  
     </h6>
-    </Link>
 
          <Link to="/chat">
          <h5 className="getemoji">💬</h5> 
          </Link>
-         <Link onClick={handleShow}>
+         <Link >
           <h5 className="getemoji">🔔</h5> 
          </Link>
-     
+         </Link>
+
 
     </div>
 
