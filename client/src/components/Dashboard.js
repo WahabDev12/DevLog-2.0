@@ -127,6 +127,7 @@ const Dashboard = () => {
         </Link>
         </Modal.Header>
         <Modal.Body>
+            <small style={{color:"red"}}> *Please upload an image*</small>
 
           {
             uploading && 
