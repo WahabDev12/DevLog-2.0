@@ -127,7 +127,6 @@ const Dashboard = () => {
         </Link>
         </Modal.Header>
         <Modal.Body>
-            <small style={{color:"red"}}> *Please upload an image*</small>
 
           {
             uploading && 
@@ -143,6 +142,9 @@ const Dashboard = () => {
              </Alert>
 
           }
+                    <Alert variant="danger"> 
+                        <h5 style={{textAlign:"center"}} >*Please upload an image*</h5>
+                        </Alert>
 
           <textarea placeholder=" What's happening?"
            value={title} 
